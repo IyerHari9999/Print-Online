@@ -1,0 +1,123 @@
+*{
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Arvo', serif;
+	outline:none;
+}
+*:hover{
+	transition-duration: .3s;
+}
+
+a{
+	text-decoration: none;
+}
+
+header{
+	height: 60px;
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
+h3{
+	font-size: 25px;
+}
+
+button{
+	border: none;
+	border-radius: 5px;
+	font-weight: bold;
+	height: 40px;
+	width: 100px;
+	font-size: 80%;	
+}
+
+#brand-logo{
+	margin-top: 15px;
+	float: left;
+	background-color: white;
+}
+
+#top-button{
+	float: right;
+	margin-top: 10px;
+	border: solid 1.5px #161637;
+}
+
+#main-card{
+	height: 250px;
+	background-color: #161637;
+	color: white;
+	text-align: center;
+}
+
+h2{
+	padding-top: 20px;
+	padding-bottom: 10px;
+	font-size: 30px;
+}
+
+h4{
+	font-size: 20px;
+	width: 60%;
+	margin-right: auto;
+	margin-left: auto;
+	font-weight: normal;
+}
+
+.white-button{
+	color: #161637;
+	background-color: white;
+}
+.white-button:hover{
+	background-color: #2C2C96;
+	color: white;
+}
+
+.blue-button{
+	color: white;
+	background-color: #2C2C96;
+}
+.blue-button:hover{
+	background-color: #161637;
+}
+
+#card-button{
+	margin-top: 20px;
+}
+
+.section{
+	height: calc(100vh - 310px);
+	width: 49.9%;
+	padding-top: 40px;
+	padding-left: calc(6vw);
+	padding-right: calc(6vw);
+}
+
+#left{
+	float: left;
+}
+
+#vl{
+	float: left;
+	margin-top: 45px;
+	height: calc(100vh - 380px);
+	width: .1%;
+	background-color: #161637;
+	border-radius: 100px;
+}
+
+#right{
+	float: right;
+}
+
+h5{
+	text-align: justify;
+	font-weight: normal;
+	font-size: 1.3vw;
+}
+
+.link{
+	color: #2C2C96; 
+}
+
