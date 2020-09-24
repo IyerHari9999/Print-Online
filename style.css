@@ -79,7 +79,8 @@ h4{
 	background-color: #2C2C96;
 }
 .blue-button:hover{
-	background-color: #161637;
+	background-color: white;
+	color: #2C2C96;
 }
 
 #card-button{
@@ -121,3 +122,18 @@ h5{
 	color: #2C2C96; 
 }
 
+form{
+	text-align: center;
+	background-color: #161637;
+	height: calc(100vh - 60px)
+}
+
+input{
+	border: none;
+	padding: 8px;
+	font-size: 18px;
+	width: 350px;
+	text-decoration: none;
+	border-radius: 3px;
+	color: #161637;
+}
