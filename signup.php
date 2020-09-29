@@ -35,7 +35,7 @@ include("php/student_SignUp.php");
 		<br><br>
 		<input type="submit"  />
 		<br><br>
-		<a><h6 style="color: white; font-weight: normal;">I have an account already ? Log in right now!  </h6><a>
+		<a href="login.php"><h6 style="color: white; font-weight: normal;">I have an account already ? Log in right now!  </h6><a>
 		<br><h4 style="color: red"><span><?php echo $error; ?></span><h4><br>
 	</form>
 	
