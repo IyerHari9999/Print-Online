@@ -141,3 +141,7 @@ input{
 	border-radius: 3px;
 	color: #161637;
 }
+
+.error{
+	color:red;
+}
