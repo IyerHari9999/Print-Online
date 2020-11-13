@@ -1,6 +1,8 @@
 <?php
 
+session_start();
 include("connection.php");
+
 $userExists=false;
 $error="";
 if(isset($_POST['submit']))
@@ -28,6 +30,10 @@ if(isset($_POST['submit']))
             {
                 $userExists=true;
                 $error="Successfully logged in";
+                $_SESSION['CURRENT_USER']=$user_UID;
+                header('Location: next.php');
+                //exit();
+                
             }
         else 
             $error="Username or password incorrect";
