@@ -21,10 +21,11 @@ include("php/student_login.php");
 		<br><br>
 		<input type="password" name="Password" placeholder="Password">
 		<br><br>
-		<button type="submit" name="submit" class="blue-button" style="width: 250px; border-radius: 100px;">Log in</button>
+		<button  type="submit" name="submit" class="blue-button" style="width: 250px; border-radius: 100px;">Log in</button>
 		<br><br>
 		<a href="signup.php"><h6 style="color: white; font-weight: normal;">Don’t have an account? Quickly create a new account now!</h6><a>
 	</form>
 	<br><h4 style="color: red"><span><?php echo $error; ?></span><h4><br>
 </body>
+
 </html>
