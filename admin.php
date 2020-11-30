@@ -1,4 +1,10 @@
 
+<?php
+include("php/connection.php");
+//session_start();
+include("php/removeEntry.php");
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,26 +28,71 @@
 	</div>
 
 	<div id="left" class="section">
-		<h3>PrintOnline Highlights Yesterday</h3>
-		<div class="card" style="height: 300px; padding: 15px 30px 5px 30px;">
-			<div style="float: left; width: 80%">
-				Total Pages Printed Yesterday<br><br>
-				Pages Printed for Sudents <br><br>
-				Pages Printed for Teachers<br><br>
-				Total Requests made Yesterday<br><br>
-				Requests made by Students<br><br>
-				Requests made by Teachers<br><br>
-			</div>
-			<div style="float: right; width: 15%; text-align: right;">
-				3000<br><br>
-				3000<br><br>
-				3000<br><br>
-				3000<br><br>
-				3000<br><br>
-				3000<br><br>
-			</div>
-		</div>
-	</div>
+        
+    <?php
+     $result=mysqli_query($connection,"SELECT * FROM  table_request ");
+        
+     //echo "<h3>Your Recent Requests</h3>";
+
+     echo "<table border='1'>";
+         echo "<tr>";
+         echo "<td>"."Request ID"."</td>"."<td>"."Student ID"."</td>"."<td>"."Title"."</td>"."<td>"."Pages"."</td>"."<td>"."Total Cost"."</td>"."<td>"."Status"."</td>";
+         echo "</tr>";
+
+     echo "<div class=card\">";
+     echo "<div style=\"width: 80%; float: left;\">";
+     while($row = mysqli_fetch_array($result))
+     {
+		
+		$tempVar1=$row['Rid'];
+		$tempVar2=$row['UID'];
+		$tempVar3=$row['friendlyName'];
+		$tempVar4=$row['pages'];
+		$tempVar5=$row['price'];
+		$tempVar6=$row['status'];
+		if($tempVar6=="rejected")
+			continue;
+         echo "<tr>";
+		 echo "<form method=\"POST\" action=\" \" width=300px>";
+		 echo "<td>";
+		/* //echo" <input type\"text\" name=\"result\" value = \"<?php echo (isset($tempVar))?$tempVar:'';?>\"> "*/
+		echo" <input type=\"text\" value=\"$tempVar1\" readonly name=\"ridField\"/> "
+			."</td>"."<td>"."<input type=\"text\" value=\"$tempVar2\" readonly name=\"UIDField\"/> "
+			."</td>"."<td>"."<input type=\"text\" value=\"$tempVar3\" readonly name=\"fnameField\"/> "
+			."</td>"."<td>"."<input type=\"text\" value=\"$tempVar4\" readonly name=\"pageField\"/> "
+			."</td>"."<td>"."<input type=\"text\" value=\"$tempVar5\" readonly name=\"priceField\"/> "
+			."</td>"."<td>"."<input type=\"text\" value=\"$tempVar6\" readonly name=\"statusField\"/> ";
+			/*."<td>".$row['UID']."</td>"
+			."<td>".$row['friendlyName']."</td>".
+			"<td>".$row['pages']."</td>".
+			"<td>".$row['price']."</td>".
+			"<td>".$row['status']."</td>";*/
+		 //echo "<td> <input type='submit' name='submit-btn' value='Complete' />";
+		/* echo "<td>";
+		 echo "<button  type=\"submit\" name=\"submit\" class=\"blue-button\" style=\"width: 100px; border-radius: 100px;\">Mark Complete</button>";
+		 echo "</td>";
+		 echo "<td>";
+		 echo "<button  type=\"submit\" name=\"submit\" class=\"blue-button\" style=\"width: 100px; border-radius: 100px;\">Remove</button>";
+		 echo "</td>";
+		*/
+
+		echo "</td>"."<td>"."<select name=\"Status\">
+			<option value=\"Queued\">Queued</option>
+			<option value=\"Completed\">Completed</option>
+			<option value=\"Reject\">Reject</option>
+			</select>"."</td>";	
+		echo "<td>";
+		echo "<button  type=\"submit\" name=\"submit\" class=\"blue-button\" style=\"width: 100px; border-radius: 100px;\">Done</button>";
+		echo "</td>";
+		 echo "</form>";
+		 echo "</tr>";
+
+         
+     }
+     echo "</table>";   
+    ?>
+
+	<!--</div>
 
 	<div id="vl"></div>
 	<div id="right" class="section">
@@ -59,6 +110,7 @@
 		</h5>
 		
 	</div>
+	-->
 
 </body>
 </html>

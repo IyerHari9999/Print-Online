@@ -14,7 +14,7 @@
 		<br><br><br><br>
 		<h4 style="color: white; text-align: center;">Enter Request Details</h4>
 		<br>
-		<h5 style="color: #00FFF0; text-align: center;">Your Time Slot : 11 am to 11:30 am</h5>
+		
 		<br>
 		<input type="text" name="PDF_title" placeholder="Enter a title for your pdf">
 		<br><br><br>
