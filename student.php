@@ -1,3 +1,8 @@
+<?php
+include("php/connection.php");
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,41 +26,29 @@
 	</div>
 
 	<div id="left" class="section">
-		<h3>Your Recent Requests</h3>
-		<h6>
-			<div class="card">
-				<div style="width: 80%; float: left;">
-				<div style="width: 65%; display: inline-block;">TE Comps WD Module 1</div>
-				<div style="width: 25%; display: inline-block; color: #00FFF0;">Queued</div>
-				<div style="width: 65%; display: inline-block;">13.8.2020, Thur</div>
-				<div style="width: 25%; display: inline-block;">250 rupees</div>
-				</div>
 
-				<button type="submit" name="archives" class="blue-button" style="float: right; margin-top: 6px; font-size: 1.1vw; width: 90px; font-weight: lighter;">Status</button>
-			</div>
+    <?php
+        $user_UID=$_SESSION["CURRENT_USER"];
+        $result=mysqli_query($connection,"SELECT * FROM  table_request WHERE UID='$user_UID'");
+        
+        echo "<h3>Your Recent Requests</h3>";
 
-			<div class="card">
-				<div style="width: 80%; float: left;">
-				<div style="width: 65%; display: inline-block;">TE Comps WD Module 1</div>
-				<div style="width: 25%; display: inline-block; color: #ff0000;">Cancelled</div>
-				<div style="width: 65%; display: inline-block;">13.8.2020, Thur</div>
-				<div style="width: 25%; display: inline-block;">250 rupees</div>
-				</div>
+        echo "<table border='1'>";
+            echo "<tr>";
+            echo "<td>"."Request ID"."</td>"."<td>"."Pages"."</td>"."<td>"."Total Cost"."</td>"."<td>"."Status"."</td>";
+            echo "</tr>";
 
-				<button type="submit" name="archives" class="blue-button" style="float: right; margin-top: 6px; font-size: 1.1vw; width: 90px; font-weight: lighter;">Status</button>
-			</div>
-
-			<div class="card">
-				<div style="width: 80%; float: left;">
-				<div style="width: 65%; display: inline-block;">TE Comps WD Module 1</div>
-				<div style="width: 25%; display: inline-block; color: #00FF38;">Completed</div>
-				<div style="width: 65%; display: inline-block;">13.8.2020, Thur</div>
-				<div style="width: 25%; display: inline-block;">250 rupees</div>
-				</div>
-
-				<button type="submit" name="archives" class="blue-button" style="float: right; margin-top: 6px; font-size: 1.1vw; width: 90px; font-weight: lighter;">Status</button>
-			</div>
-		</h6>
+        echo "<div class=card\">";
+        echo "<div style=\"width: 80%; float: left;\">";
+        while($row = mysqli_fetch_array($result))
+        {
+            echo "<tr>";
+            echo "<td>".$row['Rid']."</td>"."<td>".$row['pages']."</td>"."<td>".$row['price']."</td>"."<td>".$row['status']."</td>";
+            echo "</tr>";
+            
+        }
+        echo "</table>";
+    ?>
 	</div>
 
 	<div id="vl"></div>

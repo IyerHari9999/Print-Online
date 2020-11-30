@@ -141,6 +141,11 @@ input{
 	border-radius: 3px;
 	color: #161637;
 }
+
+.error{
+	color:red;
+}
+
 h6{
 	font-size: 1.2vw;
 	font-weight: lighter;
@@ -154,8 +159,4 @@ h6{
 	padding: 10px 15px 10px 15px;
 	text-align: left;
 	margin-top: 10px;
-}
-
-.error{
-	color:red;
 }
