@@ -56,9 +56,16 @@ else
             $error="Username already registered.";
         else            //new username(userid)
         {
-            $stmt=$connection->prepare("
-            INSERT INTO table_student(UID,fname,lname,dept,pwd)
-            VALUES (?,?,?,?,?)
+            //user table
+            $stmt1=$connection->prepare(" INSERT INTO table_user(UID,pwd) VALUES (?,?)");
+            $stmt1->bind_param('is',$user_UID,$user_pwd);
+            $stmt1->execute();
+            $stmt1->close();
+            
+            //student table
+            $stmt2=$connection->prepare("
+            INSERT INTO table_student(UID,fname,lname,dept)
+            VALUES (?,?,?,?)
             ");
 
             $user_deptID=NULL;
@@ -71,10 +78,10 @@ else
             if(!strcmp('IT',$user_dept))
                 $user_deptID=4;
 
-            $stmt->bind_param('issis',$user_UID,$user_fname,$user_lname,$user_deptID,$user_pwd);
-            $execval=$stmt->execute();
+            $stmt2->bind_param('issi',$user_UID,$user_fname,$user_lname,$user_deptID);
+            $execval=$stmt2->execute();
             echo "Registered successfully";
-            $stmt->close();
+            $stmt2->close();
         }
     }
     
