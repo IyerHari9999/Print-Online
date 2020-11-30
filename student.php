@@ -13,7 +13,7 @@ session_start();
 <body>
 	<header>
 		<h3 id="brand-logo">PrintOnline</h3>
-		<button id="top-button" class="white-button">Sign in</button>
+		<button id="top-button" class="white-button">Sign Up</button>
 	</header>
 
 	<div id="main-card">
@@ -21,8 +21,10 @@ session_start();
 		<h4>
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-		</h4>
-		<button id="card-button" class="white-button">Request</button>	
+        </h4>
+        <a href="request.php">
+        <button id="card-button" class="white-button">Request</button>	
+        </a>
 	</div>
 
 	<div id="left" class="section">
@@ -35,7 +37,7 @@ session_start();
 
         echo "<table border='1'>";
             echo "<tr>";
-            echo "<td>"."Request ID"."</td>"."<td>"."Pages"."</td>"."<td>"."Total Cost"."</td>"."<td>"."Status"."</td>";
+            echo "<td>"."Request ID"."</td>"."<td>"."Title"."</td>"."<td>"."Pages"."</td>"."<td>"."Total Cost"."</td>"."<td>"."Status"."</td>";
             echo "</tr>";
 
         echo "<div class=card\">";
@@ -43,7 +45,7 @@ session_start();
         while($row = mysqli_fetch_array($result))
         {
             echo "<tr>";
-            echo "<td>".$row['Rid']."</td>"."<td>".$row['pages']."</td>"."<td>".$row['price']."</td>"."<td>".$row['status']."</td>";
+            echo "<td>".$row['Rid']."</td>"."<td>".$row['friendlyName']."</td>"."<td>".$row['pages']."</td>"."<td>".$row['price']."</td>"."<td>".$row['status']."</td>";
             echo "</tr>";
             
         }
