@@ -141,6 +141,20 @@ input{
 	border-radius: 3px;
 	color: #161637;
 }
+h6{
+	font-size: 1.2vw;
+	font-weight: lighter;
+}
+
+.card{
+	background-color: #161637;
+	color: white;
+	height: 80px;
+	border-radius: 5px;
+	padding: 10px 15px 10px 15px;
+	text-align: left;
+	margin-top: 10px;
+}
 
 .error{
 	color:red;
