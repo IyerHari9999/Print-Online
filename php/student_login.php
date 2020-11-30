@@ -9,7 +9,9 @@ if(isset($_POST['submit']))
 {
     if(empty($_POST['UserID']) || empty($_POST['Password']))
     {
-    $error = "Username or Password is Invalid";
+        $error = "Username or Password is Invalid";
+        $user_UID=NULL;
+        $user_pwd=NULL;
     }
     else
     {
@@ -24,14 +26,14 @@ if(isset($_POST['submit']))
     }
     else
     {
-        $query=mysqli_query($connection,"SELECT * FROM  table_student WHERE UID='$user_UID' AND pwd='$user_pwd'");
+        $query=mysqli_query($connection,"SELECT * FROM  table_user WHERE UID='$user_UID' AND pwd='$user_pwd'");
         $count=mysqli_num_rows($query);
         if($count)
             {
                 $userExists=true;
                 $error="Successfully logged in";
                 $_SESSION['CURRENT_USER']=$user_UID;
-                header('Location: next.php');
+                header('Location: student.php');
                 //exit();
                 
             }
