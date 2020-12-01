@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,9 +24,25 @@
 		<br>
 
 		<input type="file" name="PDF_File" placeholder="Add your file" style="height: 100px; text-align: center;" name="fileToUpload" id="fileToUpload">
-		<br><br><br><br>
+        <br>
+        <h5 style="color: white; text-align: center;">Number of copies</h5>
+        <select name="Copies">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <br><br><br><br><br>
 
 		<input type="submit" value="Upload PDF" name="submit">
-	</form>
+    </form>
+    <a href="student.php">
+    <button type="Button">Back</button>
+    </a>
+    <?php
+//session_start();
+    //include("php/upload.php");
+    ?>
 </body>
 </html>

@@ -13,7 +13,7 @@ session_start();
 <body>
 	<header>
 		<h3 id="brand-logo">PrintOnline</h3>
-		<button id="top-button" class="white-button">Sign Up</button>
+		<button id="top-button" class="white-button">Sign Out</button>
 	</header>
 
 	<div id="main-card">
