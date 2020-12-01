@@ -3,7 +3,7 @@
     include("connection.php");
 ?>
 <?php
-if (isset($_POST['submit'])) { // if save button on the form is clicked
+if (isset($_POST['submit']) and $_FILES['PDF_File']['name']) { // if save button on the form is clicked
     // name of the uploaded file
     $filename = $_FILES['PDF_File']['name'];
 
@@ -38,22 +38,25 @@ if (isset($_POST['submit'])) { // if save button on the form is clicked
                // move_uploaded_file($file, $destination);
         $ucurrentUser=$_SESSION["CURRENT_USER"];
         $ufriendlyName=$_POST["PDF_title"];
-        $upages=1;
-        $uprice=$upages*2;
+        $upages=(int)$_POST["Copies"];
+        $uprice=$upages*5;
         $ustatus="queued";
         $utimeIn=date("Y/m/d");
         $utimeOut="30/12/9999";
         $utotalTime="30/12/9999";
         $utype=0;
         $ufileName=$filename;
+
+        //echo $upages;
         if($stmt1=$connection->prepare("INSERT INTO table_request(friendlyName,pages,price,status,TimeIn,Timeout,TotalTime,type,UID,filename) VALUES(?,?,?,?,?,?,?,?,?,?)"))
         {
         $stmt1->bind_param('sidssssiis',$ufriendlyName,$upages,$uprice,$ustatus,$utimeIn,$utimeOut,$utotalTime,$utype,$ucurrentUser,$ufileName);
         $stmt1->execute();
         $stmt1->close();
         move_uploaded_file($file, $destination);
-        echo gettype($utimeIn);
+        
         }
+        header("Location:../student.php");
     }
 }
 
